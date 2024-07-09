@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="冷笑の游里">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="https://Ruinfeature.github.io/2024/07/04/gpuanimation/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="关于项目中使用的新技术(对于我而言比较新...) --- Gpu Animation的记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity进阶开发 - Gpu Animation">
+<meta property="og:url" content="https://ruinfeature.github.io/2024/07/04/GpuAnimation/index.html">
+<meta property="og:site_name" content="lilm-Harlot">
+<meta property="og:description" content="关于项目中使用的新技术(对于我而言比较新...) --- Gpu Animation的记录">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-04T02:27:11.000Z">
+<meta property="article:modified_time" content="2024-07-09T09:36:59.768Z">
+<meta property="article:author" content="冷笑の游里">
+<meta property="article:tag" content="Unity进阶">
+<meta property="article:tag" content="Shader">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/39366591?v=4" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://avatars.githubusercontent.com/u/39366591?v=4">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/39366591?v=4">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Unity进阶开发 - Gpu Animation -
+        
+        Lilm - Harlot
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    
+        
+<script src="/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ruinfeature.github.io","root":"/","language":"zh-CN"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":false,"site_pv":false,"site_uv":false,"post_pv":false},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Lilm - Harlot","subtitle":{"text":["The good fight I have finished. should do the road I have done. when his faith I hold on.","From now on, the crown of rightousness has retained for you."],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":30,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.6.4","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"right","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2024/7/1 14:30:00"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+
+    <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        Lilm - Harlot
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [40,0],
+                translateZ: 0,
+                opacity: [0,1],
+                filter: ['blur(5px)', 'blur(0px)'], // Starting from blurred to unblurred
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i,
+            }).add({
+                targets: '.ml13 .letter',
+                translateY: [0,-40],
+                opacity: [1,0],
+                filter: ['blur(0px)', 'blur(5px)'], // Ending from unblurred to blurred
+                easing: "easeInExpo",
+                duration: 1200,
+                delay: (el, i) => 100 + 30 * i,
+                complete: function() {
+                    hidePreloader(); // Call hidePreloader after the animation completes
+                }
+            });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                Lilm - Harlot
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">9</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                
+                
+                <img src="/images/2024/07/shadow.jpg" alt="Unity进阶开发 - Gpu Animation" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75"/>
+                
+                <div class="w-full flex items-center absolute bottom-0 justify-start">
+                    <h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Unity进阶开发 - Gpu Animation</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="https://avatars.githubusercontent.com/u/39366591?v=4">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">冷笑の游里</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-07-04 10:27:11</span>
+        <span class="mobile">2024-07-04 10:27:11</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-07-09 17:36:59</span>
+            <span class="mobile">2024-07-09 17:36:59</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Unity%E8%BF%9B%E9%98%B6/">Unity进阶</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Shader/">Shader</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近有参与开发了一款割草游戏，立项时策划的需求是需要同屏存在大量的怪物。假设吧，同屏存在900个怪物。如果按照以往骨骼模型+动画的做法，同屏900个怪物就说播放一个动画那个帧率不能说很高了也能说低到感人。</p>
+<p>上网搜索解决方案的时候就看到Gpu Animation 这个解决方案。拿过来在demo里面试了以下之后发现效果非常好，于是就搬过来直接用到项目开发里面（不是完全的照搬，每个项目都不一样总需要改一点东西）。 这篇文章是作为项目开发中的一个技术知识点记录。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>还是回到我们刚刚的案例。通过查看Profiler面板可知，同屏900个怪物相关的逻辑耗时主要集中在PreLateUpdate.DirectorUpdateAnimationBegin 和 PreLateUpdate.DirectorUpdateAnimationEnd，以及PostLateUpdate.UpdateAllSkinnedMeshes 这几个函数上。其中 DirectorUpdateAnimationBegin 和 DirectorUpdateAnimationEnd，这两个函数底层调用的是Animators.Update()<s>虽然翻了半天没有翻到Animators这个类，只能认为Profiler想表达的是由很多个Animator组件在运行吧…. </s>, 不过根据名字也能判断这个函数主要处理动画的Update逻辑。而PostLateUpdate.UpdateAllSkinnedMeshes底层由MeshSkinning.Update()实现，这个函数用于计算动画播放时的顶点位置以及蒙皮效果。</p>
+<p>因此，当需要渲染的角色多的时候就会有两个大开销:</p>
+<ul>
+<li><p>CPU在处理动画时的开销, 包括动画数据的更新, 和骨骼动画的顶点计算和蒙皮计算</p>
+</li>
+<li><p>GPU端的渲染开销 - 打开FrameDebug面板上可以看到SkinOnGPU的批次绘制非常高</p>
+</li>
+</ul>
+<p>解决这两个问题： </p>
+<ul>
+<li><p>关于CPU端，处理思想就是将一部分CPU的计算转移到GPU端  </p>
+</li>
+<li><p>关于GPU端，能处理的就是合批，但静态合批不可能， 动态合批的话不稳定（如果后面再加一些奇奇怪怪的逻辑很容易就会打断合批），SRPBatch能在一定程度上解决GPU的开销但是杯水车薪。最终还是选择使用Gpu Instancing； 以及自写一个简易的裁切，不在相机内的物体不处理渲染逻辑</p>
+</li>
+</ul>
+<h2 id="GPU-Animation-–-资源准备"><a href="#GPU-Animation-–-资源准备" class="headerlink" title="GPU Animation – 资源准备"></a>GPU Animation – 资源准备</h2><p>说到GpuAnimation，这里肯定就绕不开SkinnedMeshRender 和 骨骼动画。由于上一篇文章中相关的知识点已经总结过了，所以这里仅挂一下链接，跳过，直接进入正题。</p>
+<p>🔗 <a href="https://ruinfeature.github.io/2024/07/08/skinnedMeshRender/">https://ruinfeature.github.io/2024/07/08/skinnedMeshRender/</a></p>
+<p>根据骨骼动画的原理，AnimationClip是通过修改骨骼的三维信息进而影响Mesh的顶点数据，我们可以将这部分计算转移到GPU上。通过将AnimationClip中的数据烘焙成一张静态贴图，在shader中的顶点函数根据图片的采样信息更改顶点的位置，从而实现动画的播放。（其实本质上骨骼动画也通过改变Mesh的vertices内容实现的，只不过这部分的计算是处于CPU端）</p>
+<p>下面就是如何将AnimationClip中对于骨骼三维数据的变换信息写入静态图片中。由于AnimcationClip中记录的是骨骼的三维变换信息，相当于矩阵偏移，所以图片的宽度值为mesh中的骨骼数 * 3，图片的高度值为所有clip中 clip.length * clip.frameRate 之和</p>
+<p>首先，我们定义如下数据结构</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public struct AnimationEvent</span><br><span class="line">&#123;</span><br><span class="line">    //当前那一帧触发关键帧</span><br><span class="line">    public float keyFrame;</span><br><span class="line">    //触发事件名称</span><br><span class="line">    public string eventName;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public struct GpuAnimationData</span><br><span class="line">&#123;</span><br><span class="line">    //当前动画的名称</span><br><span class="line">    public string clipName;</span><br><span class="line">    //当前动画的起始帧</span><br><span class="line">    public int frameBegin;</span><br><span class="line">    //当前动画的总帧数</span><br><span class="line">    public int frameCount;</span><br><span class="line">    //当前动画是否循环</span><br><span class="line">    public bool loop;</span><br><span class="line">    //动画clip长度</span><br><span class="line">    public int length;      </span><br><span class="line">    //动画帧率 - 作用等同于AnimationClip.frameRate</span><br><span class="line">    public float frameRate;  </span><br><span class="line">    //关键帧触发事件</span><br><span class="line">    public AnimationEvent[] events;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>之后开始烘焙动画信息</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">AnimationClip[] clips = xxxx;  //获取到需要烘焙的动画信息</span><br><span class="line">int boneNum = skinned.sharedMesh.bindposes.length;</span><br><span class="line">int width = boneNum * 3;</span><br><span class="line">//这里先简单的写一个，实际流程中还有其他数据需要录入...</span><br><span class="line">int height = 0;</span><br><span class="line">Array.ForEach(clips, (clip) =&gt; &#123; height += (int)(clip.length * clip.frameRate); &#125;);</span><br><span class="line">Texture2D img = new Texture2D(Mathf.NextPowerOfTwo(width), Mathf.NextPowerOfTwo(height), TextureFormat.RGBAHalf, false);</span><br><span class="line"></span><br><span class="line">int start = 0;</span><br><span class="line">Array.ForEach(clips, (clip) =&gt; </span><br><span class="line">&#123;</span><br><span class="line">   int frameCount = (int)(clip.length * clip.frameRate);</span><br><span class="line">   for(int x = 0; x &lt; frameCount; x ++)</span><br><span class="line">   &#123;</span><br><span class="line">       //采样动画当前帧的骨骼信息</span><br><span class="line">       clip.SampleAnimation(model, clip.length * x / frameCount);</span><br><span class="line">       var currentFrame = start + x;</span><br><span class="line"></span><br><span class="line">       //遍历所有的骨骼，将采样后的骨骼信息录入到图片中</span><br><span class="line">       for(int y = 0; y &lt; skinned.bones.length; y ++)</span><br><span class="line">       &#123;</span><br><span class="line">          Matrix4x4 matrix = skinned.bones[y].localToWorldMatrix * skinned.sharedMesh.bindposes[y]; //记录当前骨骼的模型转世界转换矩阵</span><br><span class="line">          </span><br><span class="line">          //将这个矩阵的前三行信息进行记录(w行不记录是因为不涉及坐标系转换，当然也可以记录，上面的 *3 变为 *4, 这里遍历4次即可)</span><br><span class="line">          for(int i = 0; i &lt; 3; i ++)&#123; img.SetPixel(y + i, currentFrame, matrix.GetRow(i)); &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   start += frameCount;</span><br><span class="line">&#125;);</span><br><span class="line">img.Apply();</span><br></pre></td></tr></table></figure></div>
+<p>然后，基于Mesh顶点和骨骼之间的关系，即BoneWeight中记录的数据，我们需要重构Mesh数据，在第二套纹理坐标和第三套纹理坐标中写入Mesh顶点上影响的骨骼下标和的骨骼权重信息</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Mesh instancedMesh = xxxx  //经过特殊处理的Mesh</span><br><span class="line">BoneWeight[] boneWeights = skinned.sharedMesh.boneWeights;</span><br><span class="line">float4[] boneIndexs = new float4[boneWeights.length];</span><br><span class="line">float4[] boneWeights = new float4[boneWeights.length];</span><br><span class="line"></span><br><span class="line">for(int i = 0; i &lt; boneWeights.length; i ++)</span><br><span class="line">&#123;</span><br><span class="line">    boneIndexs[i] = new float4(boneWeights[i].boneIndex0, boneWeights[i].boneIndex1, boneWeights[i].boneIndex2, boneWeights[i].boneIndex3);</span><br><span class="line">    boneWeights[i] = new float4(boneWeights[i].weight0, boneWeights[i].weight1, boneWeights[i].weight2, boneWeights[i].weight3);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//这里纹理坐标并不一定非要是2和3，根据项目的实际需求来，我的项目第一套纹理需要用来计算光照贴图</span><br><span class="line">instancedMesh.SetUVs(2, uv1);</span><br><span class="line">instancedMesh.SetUVs(3, uv1);</span><br><span class="line"></span><br><span class="line">//这些信息已经记录到纹理坐标中了，就不需要来占资源内存了</span><br><span class="line">instancedMesh.boneWeights = null;</span><br><span class="line">instancedMesh.bindposes = null;</span><br></pre></td></tr></table></figure></div>
+<h2 id="GpuAnimation-Runtime-采样"><a href="#GpuAnimation-Runtime-采样" class="headerlink" title="GpuAnimation - Runtime 采样"></a>GpuAnimation - Runtime 采样</h2><p>在游戏运行过程中，我们需要在Update中手动计算动画播放的当前帧和下一帧数据，并手动记录当前动画已经经过的时间passTime，这里动画的播放会碰到两种情况：</p>
+<ol>
+<li>当前动画为循环动画时，动画的当前帧和下一帧遵循如下公式：  <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">动画当前帧 = math.min((经过时间 % clip.length) * 帧率 * 播放速度 + 起始帧, clip.frameCount);</span><br><span class="line">动画下一帧 = math.min(动画当前帧 + 1, clip.frameCount);</span><br></pre></td></tr></table></figure></div></li>
+<li>当前动画不为循环动画时，动画的当前帧和下一帧遵循如下公式  <div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">动画当前帧 = math.min(经过时间 * 帧率 * 播放速度 + 起始帧, clip.frameCount);</span><br><span class="line">动画下一帧 = math.min(动画当前帧 + 1, clip.frameCount);</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<p>用代码表示为</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">timeElapsed += deltaTime;</span><br><span class="line">//当前动画已经经过的时间 --&gt; 将运算单位从时间转换为帧</span><br><span class="line">float framePassed = math.select(math.min(clip.frameCount, timeElapsed) * clip.frameRate, (timeElapsed % clip.length) *clip.frameRate, loop);</span><br><span class="line">//当前帧数据</span><br><span class="line">float currentFrame = math.select(math.min((int)(framePassed), clip.frameCount - 1), framePassed % clip.frameCount, loop);</span><br><span class="line">//下一帧数据</span><br><span class="line">float nextFrame = math.select(math.min(currentFrame + 1, (clip.frameCount - 1)), (currentFrame + 1) % clip.frameCount, loop);</span><br><span class="line">//当前动画东方的时常百分比 -- 用于计算是否触发关键帧事件</span><br><span class="line">float frameRote = currentFrame / ((float)(infos[index]-&gt;frameCount));</span><br><span class="line"></span><br><span class="line">//将这些数据存入数组对象或者list</span><br><span class="line">....</span><br></pre></td></tr></table></figure></div>
+<p>将上述所有的数据通过MaterialPropertyBlock打包发送给Shader进行渲染</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">MaterialPropertyBlock gpuInfo = new MaterialPropertyBlock();</span><br><span class="line">gpuInfo.SetFloatArray(&quot;_AnimFrameBegin&quot;, currentFrames);</span><br><span class="line">gpuInfo.SetFloatArray(&quot;_AnimFrameEnd&quot;, nextFrames);</span><br><span class="line">gpuInfo.SetFloatArray(&quot;_AnimFrameInterpolate&quot;, framePasseds);</span><br><span class="line"></span><br><span class="line">//批量绘制</span><br><span class="line">Graphics.DrawMeshInstanced(mesh, subMeshIndex, materials, matrices, num, gpuInfo, castshadows ? ShadowCastingMode.On : ShadowCastingMode.Off, false, layer);</span><br></pre></td></tr></table></figure></div>
+<p>提交渲染后，在Mesh从模型空间转至裁切空间之前，需要在顶点函数采样动画贴图，根据采样数据对顶点坐标进行变换</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">UNITY_INSTANCING_BUFFER_START(PropsGPUAnim)</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(int, _AnimFrameBegin)</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(int, _AnimFrameEnd)</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(float, _AnimFrameInterpolate)</span><br><span class="line">    //闪白效果</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(float, _GpuFlashRange)</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(float, _GpuFlashAlpha)</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(float4, _GpuFlashColor)</span><br><span class="line">    //溶解</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(float, _GpuDissolve)</span><br><span class="line">    UNITY_DEFINE_INSTANCED_PROP(float4, _AnimTex_TexelSize)</span><br><span class="line">UNITY_INSTANCING_BUFFER_END(PropsGPUAnim)</span><br><span class="line"></span><br><span class="line">#define _FrameBegin UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _AnimFrameBegin)</span><br><span class="line">#define _FrameEnd UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _AnimFrameEnd)</span><br><span class="line">#define _FrameInterpolate UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _AnimFrameInterpolate)</span><br><span class="line"></span><br><span class="line">#define _FrameRange UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _GpuFlashRange)</span><br><span class="line">#define _FrameAlpha UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _GpuFlashAlpha)</span><br><span class="line">#define _FrameFlashColor UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _GpuFlashColor)</span><br><span class="line"></span><br><span class="line">#define _FrameDissolve UNITY_ACCESS_INSTANCED_PROP(PropsGPUAnim, _GpuDissolve)</span><br><span class="line"></span><br><span class="line">//GPU ANIM贴图</span><br><span class="line">TEXTURE2D(_AnimTex);            SAMPLER(sampler_AnimTex);  </span><br><span class="line">  </span><br><span class="line">float4x4 SampleTransformMatrix(uint sampleFrame,uint transformIndex)</span><br><span class="line">&#123;</span><br><span class="line">    float2 index=float2(.5h+transformIndex*3,.5h+sampleFrame);</span><br><span class="line">    return float4x4(SAMPLE_TEXTURE2D_LOD(_AnimTex,sampler_AnimTex, index * _AnimTex_TexelSize.xy, 0)</span><br><span class="line">    , SAMPLE_TEXTURE2D_LOD(_AnimTex,sampler_AnimTex, (index + float2(1, 0)) * _AnimTex_TexelSize.xy, 0)</span><br><span class="line">    , SAMPLE_TEXTURE2D_LOD(_AnimTex,sampler_AnimTex,  (index + float2(2, 0)) * _AnimTex_TexelSize.xy, 0)</span><br><span class="line">    ,float4(0,0,0,1));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">float4x4 SampleTransformMatrix(uint sampleFrame,uint4 transformIndex,float4 transformWeights)</span><br><span class="line">&#123;</span><br><span class="line">    return SampleTransformMatrix(sampleFrame, transformIndex.x) * transformWeights.x </span><br><span class="line">        + SampleTransformMatrix(sampleFrame, transformIndex.y) * transformWeights.y</span><br><span class="line">        + SampleTransformMatrix(sampleFrame, transformIndex.z) * transformWeights.z</span><br><span class="line">        + SampleTransformMatrix(sampleFrame, transformIndex.w) * transformWeights.w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//仅需要在顶点函数中调用该函数</span><br><span class="line">void SampleTransform(uint4 transformIndexes,float4 transformWeights,inout float3 positionOS,inout float3 normalOS)</span><br><span class="line">&#123;</span><br><span class="line">    float4x4 sampleMatrix = lerp(SampleTransformMatrix(_FrameBegin, transformIndexes, transformWeights), SampleTransformMatrix(_FrameEnd, transformIndexes, transformWeights), _FrameInterpolate);</span><br><span class="line">    normalOS = mul((float3x3)sampleMatrix,normalOS);</span><br><span class="line">    positionOS = mul(sampleMatrix,float4(positionOS,1)).xyz;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">VertexOutput vert(VertexInput input)</span><br><span class="line">&#123;</span><br><span class="line">    VertexOutput output;</span><br><span class="line">    .....</span><br><span class="line">    SampleTransform(transformIndexes,transformWeights,input.vertex, input.normal);</span><br><span class="line">    output.position = TransformObjectToHClip(input.vertex);</span><br><span class="line">    .....</span><br><span class="line">    return output;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="通过Burst-JobSystem-实现-GpuAnimation-Unity端的多线程计算"><a href="#通过Burst-JobSystem-实现-GpuAnimation-Unity端的多线程计算" class="headerlink" title="通过Burst + JobSystem 实现 GpuAnimation Unity端的多线程计算"></a>通过Burst + JobSystem 实现 GpuAnimation Unity端的多线程计算</h2><p>作为Unity官方从2019开始推出的新技术，以及Unity技术栈的核心之一。 Burst既能和unity官方推崇的DOTS和ECS（面向数据编程）架构生成高优化代码，又能单独拆分出的unity官方承认的内部多线程架构。当然这篇文章不准备深挖Burst相关的技术栈，我自己也仅仅是知道点皮毛，会用而已。</p>
+<p>而GpuAnimation中，每一个关键帧的计算可以通过Burst注解 + JobSystem逻辑管理优化成CPU更容易理解的机器码，并且能一定程度上做到数据复用。唯一的问题可能就是代码架构可能会过于混乱，而且某些地方可能比较难理解。嘛…..优化嘛，先写着看看吧</p>
+<p>备注: 后面所有的逻辑我仅能保证逻辑正确能正常运行，关于所谓的性能优化和运行时间优化仅采用官方和网上一些博客的描述，并没有实际在真机上测试过。网上对于jobSystem相对于jobsystem的优化有不同的说法，见仁见智吧…. 至于在真机上是否真的有优化效果等有时间再试吧。</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">public struct GpuAnimationRunningResult</span><br><span class="line">&#123;</span><br><span class="line">    public long viewId;</span><br><span class="line">    public float currentFrame;</span><br><span class="line">    public float nextFrame;</span><br><span class="line">    public float interpolate;</span><br><span class="line">    public float frameRote;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">[BurstCompile]</span><br><span class="line">public unsafe struct IJobGpuAnimtionRunning : IJobParallelFor</span><br><span class="line">&#123;</span><br><span class="line">    public float delta;</span><br><span class="line">    /**</span><br><span class="line">      严格中Jobsystem中不允许使用指针，但是动画数据数组和动画当前播放帧属于经常变更的数据。如果使用NativeArray或者NativeList等其他Native容器的话后续还需要拷贝和赋值操作</span><br><span class="line">      毕竟值对象类型懂得都懂。所以这里定义了用完即弃的指针数组（c#对指针数组也是各种乱七八糟的规矩...）</span><br><span class="line">    */</span><br><span class="line">    [NativeDisableUnsafePtrRestriction] public AnimationTickClipInfo** infos;</span><br><span class="line">    [NativeDisableUnsafePtrRestriction] public float** timeElpaseds;</span><br><span class="line">    /**</span><br><span class="line">      一般Jobsysetm中承认能公开调用的Native容器仅有NativeArray（好像还有一个NativeSlice的....没用过），如果不添加NativeDisableParallelForRestriction注解的情况下使用NativeList等其Native容器，编译时会报错： </span><br><span class="line">          </span><br><span class="line">        InvalidOperationException: IJobTestNativelist.infolist is not declared [ReadOnly] in a IJobParallelFor job. The container does not support parallel writing. Please use a more suitable container type.</span><br><span class="line"></span><br><span class="line">      并且为了避免在jobsystem内部出现拓容操作（Native的拓容和一般的拓容相同），在mono中初始化的时候建议还是初始化容量数据</span><br><span class="line">    */</span><br><span class="line">    [WriteOnly, NativeDisableParallelForRestriction] public NativeList&lt;GpuAnimationRunningResult&gt; result;</span><br><span class="line"></span><br><span class="line">    public void Execute(int index)</span><br><span class="line">    &#123;</span><br><span class="line">        bool loop = infos[index]-&gt;loop;</span><br><span class="line">        *timeElpaseds[index] += infos[index]-&gt;speed * delta;</span><br><span class="line">          </span><br><span class="line">        float framePassed = math.select(math.min((*infos[index]).length, *timeElpaseds[index]) * (*infos[index]).frameRate, (*timeElpaseds[index] % (*infos[index]).length) *(*infos[index]).frameRate, loop);</span><br><span class="line">        float currentFrame = math.select(math.min((int)(framePassed), (*infos[index]).frameCount - 1), (int)(framePassed) % (*infos[index]).frameCount, loop);</span><br><span class="line">        float nextFrame = math.select(math.min(currentFrame + 1, (*infos[index]).frameCount - 1), (currentFrame + 1) % (*infos[index]).frameCount, loop);</span><br><span class="line">        float frameRote = currentFrame / ((float)(infos[index]-&gt;frameCount));</span><br><span class="line"></span><br><span class="line">        currentFrame += infos[index]-&gt;frameBegin;</span><br><span class="line">        nextFrame += infos[index]-&gt;frameBegin;</span><br><span class="line">        framePassed %= 1;</span><br><span class="line">          </span><br><span class="line">        //计算结果录入</span><br><span class="line">        GpuAnimationRunningResult final = new GpuAnimationRunningResult()</span><br><span class="line">        &#123;</span><br><span class="line">            viewId = infos[index]-&gt;instanceId,</span><br><span class="line">            currentFrame = currentFrame,</span><br><span class="line">            nextFrame = nextFrame,</span><br><span class="line">            interpolate = interpolate,</span><br><span class="line">            frameRote = frameRote</span><br><span class="line">        &#125;;</span><br><span class="line">        result.add(final); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;  </span><br><span class="line"></span><br><span class="line">//mono - update中调用</span><br><span class="line">IJobParallelForExtensions.Run(runningJob, count);   //数量没有过万的时候更建议使用该接口，直接单独开一个线程一个for循环结束。反正我是这么理解这个接口的...</span><br></pre></td></tr></table></figure></div>
+
+<p>我现在的逻辑是在Update中不停的调用IJobParallelForExtensions.Run()这个方法，后续有需要的话可以考虑将这块逻辑扔到渲染管线里面单独写一个Pass（这个只是不切实际的猜想，有实现的可能性但是必要性有没有我不知道….）。其次，记得有看过Unity官方的论坛有关于Burst的介绍，他有注意到网上的很多教程和博客都在unity的Update函数中使用JobSyetem，说并不建议这么写……<s>那你倒是写个详细点的文档啊混蛋。</s></p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li>动画需求不宜复杂，骨骼数量过多会增加shader顶点函数的计算量，生成的AnimTex的height值会过大。如果动画时间过程亦会增加图片的width值</li>
+<li>某些动画不能通过GpuAnimation，比如layer层分层（后面想了下感觉可能有操作空间，但是太麻烦了不建议弄….）；一个人物的渲染有两个skinnedMeshRenderer组成（类似那种人物和武器分离，这种情况下也不是不能做但是很麻烦，没有必要因为这种情况多耗一个批次）</li>
+</ol>
+<h2 id="引用文档"><a href="#引用文档" class="headerlink" title="引用文档"></a>引用文档</h2><ul>
+<li>Unity-GPU Animation: 🔗 <a class="link"   target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/413815001" >https://zhuanlan.zhihu.com/p/413815001 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+<li>利用GPU实现大规模角色的渲染: 🔗 <a class="link"   target="_blank" rel="noopener" href="https://www.cnblogs.com/murongxiaopifu/p/7250772.html" >https://www.cnblogs.com/murongxiaopifu/p/7250772.html <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Unity进阶开发 - Gpu Animation</li>
+        <li><strong>作者:</strong> 冷笑の游里</li>
+        <li><strong>创建于
+                :</strong> 2024-07-04 10:27:11</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-07-09 17:36:59
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://ruinfeature.github.io/2024/07/04/GpuAnimation/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Unity%E8%BF%9B%E9%98%B6/">#Unity进阶</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Shader/">#Shader</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/07/08/skinnedMeshRender/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Unity进阶 - SkinnedMeshRenderer 和 骨骼动画</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/07/02/Canvas/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">UGUI Canvas 组件详解</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">此页目录</div>
+        <div class="page-title">Unity进阶开发 - Gpu Animation</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPU-Animation-%E2%80%93-%E8%B5%84%E6%BA%90%E5%87%86%E5%A4%87"><span class="nav-text">GPU Animation – 资源准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GpuAnimation-Runtime-%E9%87%87%E6%A0%B7"><span class="nav-text">GpuAnimation - Runtime 采样</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%9A%E8%BF%87Burst-JobSystem-%E5%AE%9E%E7%8E%B0-GpuAnimation-Unity%E7%AB%AF%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%A1%E7%AE%97"><span class="nav-text">通过Burst + JobSystem 实现 GpuAnimation Unity端的多线程计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8%E6%96%87%E6%A1%A3"><span class="nav-text">引用文档</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fal fa-fire" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">冷笑の游里</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共 4 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.4</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/libs/mermaid.min.js"></script>
+
+    
+<script src="/js/plugins/mermaid.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
